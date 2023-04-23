@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event-Handling | Movie List</h1>
+
+    <ul id="movie-list">
+        <li>The Matrix</li>
+        <li>The Lord of the Rings</li>
+        <li>Chronicles of Narnia</li>
+        <li>Man of Steel</li>
+        <li>The Case for Chirst</li>
+    </ul>
+
+    <script>
+        let movieLiElements = document.querySelectorAll('#movie-list li');
+
+        movieLiElements.forEach(el => {
+            el.addEventListener('click', (e) => {
+                // console.log(e.currentTarget.textContent);
+                e.currentTarget.style.textDecoration = 'line-through'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+    {
+        "img":"https://www.ikea.com/de/de/images/products/vimle-3er-sofa-gunnared-beige__0514366_pe639439_s5.jpg?f=xl",
+        "name": "Sofa",
+        "price": "259",
+        "decFactor":"0.4"
+    },
+    {
+        "img":"https://www.stylespafurniture.com/wp-content/uploads/2020/03/Cove_3_Door_Wardrobe_1.jpg",
+        "name": "Wardrobe",
+        "price": "120",
+        "decFactor":"1.2"
+    }
+]
+
+
+
+// [
+//     {
+//         "img":"https://www.ikea.com/PIAimages/0447583_PE597395_S5.JPG",
+//         "price": "259",
+//         "decFactor":"0.4"
+//     },
+//     {
+//         "img":"https://www.stylespafurniture.com/wp-content/uploads/2020/03/Cove_3_Door_Wardrobe_1.jpg",
+//         "name": "Wardrobe",
+//         "price": "120",
+//         "decFactor":"1.2"
+//     }
+// ]

@@ -1,0 +1,31 @@
+.text {
+    background-color: cadetblue;
+}
+
+.typography {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: darkblue;
+}
+
+#result {
+    height: 48px;
+    font-size: 38px;
+}
+
+button {
+    border-radius: 16px;
+    font-size: 32px;
+    color: darkgreen;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    padding:15px;
+    margin-bottom: 12px;
+}
+
+button:hover {
+    background-color: darkgreen;
+    color: white;
+    /* transition-delay: 350ms;
+    transition-property: margin-right; */
+    transition: color 0.5s, transform 0.7s, background-color 0.7s;
+}

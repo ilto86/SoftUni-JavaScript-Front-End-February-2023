@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="even-handling-types.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Event Handling Types</h1>
+
+    <h2>Counter</h2>
+    <div id="number">0</div>
+
+    <button onclick="clearCounter()">Clear</button>
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+    
+
+    <script>
+        let numberDivElement = document.getElementById('number');
+
+        let incrementButtonElement = document.getElementById('increment');
+        let decrementButtonElement = document.getElementById('decrement');
+
+        // 1. Attach eventhandler by attribute
+        function clearCounter() {
+            numberDivElement.textContent = 0;
+        }
+        
+        // 2. Attach eventhandler by event property
+        incrementButtonElement.onclick = (eve) => {
+            console.log(eve);
+            
+            let currentNumber = Number(numberDivElement.textContent);
+            numberDivElement.textContent = currentNumber + 1;
+        }
+
+        // 3. Attach eventListener/eventhandler by method - the preferred choice
+        decrementButtonElement.addEventListener('click', function (eve) {
+            console.log(eve);
+
+            let currentNumber = Number(numberDivElement.textContent);
+            numberDivElement.textContent = currentNumber - 1;
+        });
+
+        // 4. Attach eventListener/eventhandler by method - with add and remove eventListener
+        // const numberSubtractionFunction = function() {
+        //     let currentNumber = Number(numberDivElement.textContent);
+        //     numberDivElement.textContent = currentNumber - 1;
+        // };
+        // decrementButtonElement.addEventListener('click', numberSubtractionFunction);
+        // decrementButtonElement.removeEventListener('click', numberSubtractionFunction);
+
+    </script>
+</body>
+</html>
