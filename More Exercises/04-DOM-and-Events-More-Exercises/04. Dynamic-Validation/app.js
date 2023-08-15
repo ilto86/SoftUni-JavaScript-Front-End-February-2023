@@ -1,11 +1,13 @@
 function validate() {
-    const target = document.getElementById('email');
-    target.addEventListener('change', (event) => {
-        const email = event.target.value;
-        if (!email.includes('@') || !email.includes('.')) {
-            target.classList += 'error';
+    const emailInputField = document.getElementById('email');
+    emailInputField.addEventListener('change', validateInput);
+
+    function validateInput() {
+        const valid = emailInputField.value.match(/^[a-z]+\@[a-z]+\.[a-z]+$/g);
+        if (!valid) {
+            emailInputField.setAttribute('class', 'error')
         } else {
-            target.classList.remove('error');
+            emailInputField.removeAttribute('class');
         }
-    });
+    }
 }

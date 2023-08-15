@@ -1,35 +1,46 @@
 function solve() {
-   //TODO...
-    const currentDiv = Array.from(document.getElementsByClassName('product'));
-    let products = {};
-    const textArea = document.querySelector('body > div > textarea');
+    const addBtns = Array.from(document.querySelectorAll('.add-product'));
+    const removeBtns = Array.from(document.querySelectorAll('.remove-product'));
+    const output = document.querySelector('textarea');
+    const checkoutBtn = document.querySelector('.checkout');
+    addBtns.forEach(btn => btn.addEventListener('click', addProduct))
+    removeBtns.forEach(btn => btn.addEventListener('click', removeProduct));
+    checkoutBtn.addEventListener('click', buy);
+    let order = {};
 
-    currentDiv.forEach(element => {
-        let button = element.querySelector('div > div.product-add > button');
-        button.addEventListener('click', () => {
-            let productName = element.querySelector('div > div.product-details > div').textContent;
-            let productPrice = Number(element.querySelector('div > div.product-line-price').textContent);
-            if (!(productName in products)) {
-                products[productName] = 0;
-            }
-            products[productName] += productPrice;
-            textArea.textContent += `Added ${productName} for ${productPrice.toFixed(2)} to the cart.\n`
-        });
-    });
-
-    const checkout = document.querySelector('body > div > button');
-    checkout.addEventListener('click', () => {
-        let boughtProducts = [];
-        let totalPrice = 0;
-        for (const product in products) {
-            boughtProducts.push(product);
-            totalPrice += products[product];
+    function addProduct() {
+        const product = Array.from(this.parentElement.parentElement.children);
+        const productTitle = product[1].children[0].innerText;
+        const productPrice = Number(product[3].innerText);
+        if (!order.hasOwnProperty(productTitle)) {
+            order[productTitle] = 0;
         }
-        textArea.textContent += `You bought ${boughtProducts.join(', ')} for ${totalPrice.toFixed(2)}.`
-        currentDiv.forEach(element => {
-            let button = element.querySelector('div > div.product-add > button');
-            button.disabled = true;
+        order[productTitle] += productPrice;
+        output.textContent += `Added ${productTitle} for ${productPrice.toFixed(2)} to the cart.\n`;
+    }
+
+    function removeProduct() {
+        const product = Array.from(this.parentElement.parentElement.children);
+        const productTitle = product[1].children[0].innerText;
+        const productPrice = Number(product[3].innerText);
+        if (order.hasOwnProperty(productTitle)) {
+            order[productTitle] -= productPrice;
+            if (order[productTitle] <= 0) {
+                delete order[productTitle];
+            }
+            output.textContent += `Removed ${productTitle} from the cart.\n`;
+        }
+    }
+
+    function buy() {
+        let products = [];
+        let totalPrice = 0;
+        Object.keys(order).forEach(product => {
+            products.push(product);
+            totalPrice += Number(order[product]);
         })
-        checkout.disabled = true;
-    });
+        output.textContent += `You bought ${products.join(', ')} for ${totalPrice.toFixed(2)}.`
+        addBtns.forEach(btn => btn.disabled = true);
+        checkoutBtn.disabled = true;
+    }
 }

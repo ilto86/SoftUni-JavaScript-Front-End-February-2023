@@ -2,7 +2,13 @@
 html {
     font-family: "Lato", sans-serif;
     font-size: 26px;
-    color: #234465;
+    color: #61dafb;
+    background-color: #282c34;
+}
+
+h1, h2 {
+    display: block;
+    text-align: center;
 }
 
 form {
@@ -25,31 +31,58 @@ label {
 
 input {
     border: 1px solid #234465;
+    background: #61dafb;
+    color: #234465;
     outline: none;
     border-radius: 6px;
     padding: 7px;
 }
 
-input[type="button"] {
-    background: #234465;
-    width: 61%;
-    margin: 0 auto;
-    color: white;
-    font-size: 22px;
-    text-transform: uppercase;
+.select-field {
+    background-color: #61dafb;
+    color: #282c34;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #234465;
+    border-radius: 5px;
+    transition: border-color 0.3s;
 }
 
-input[type="button"]:hover {
-    cursor: pointer;
-    text-decoration: underline;
+.input-field:focus,
+.select-field:focus {
+    outline: none;
+    border-color: #1f87c7;
+    background-color: #234465;
+    color: #61dafb;
 }
+
 
 .result-container {
     background: #234465;
     margin: 0 auto;
     width: 43%;
-    color: white;
+    color: #61dafb;
     padding: 25px 0;
     text-align: center;
     border-radius: 2px;
+}
+
+.result-container:hover {
+    background-color: #155e91;
+    color: burlywood;
+}
+
+.transform-button {
+    background-color: #234465;
+    color: burlywood;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.transform-button:hover {
+    background-color: #155e91;
+    color: #61dafb;
 }

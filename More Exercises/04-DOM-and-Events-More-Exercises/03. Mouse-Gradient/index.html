@@ -10,11 +10,27 @@
 </head>
 
 <body onload="attachGradientEvents()">
-    <div id="gradient-box">
-        <div id="gradient">Hover here!</div>
+    <div id="color-picker">
+        <label for="color-select">Select Color:</label>
+        <select id="color-select">
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="orange">Orange</option>
+            <option value="brown">Brown</option>
+            <option value="coral">Coral</option>
+            <option value="#61dafb">Light Blue</option>
+            <option value="#234465">Navy Blue</option>
+            <!-- Add more color options here -->
+        </select>
     </div>
-    <div id="result"></div>
+    <div id="gradient-box">
+        <div id="gradient">Hover Me!</div>
+        <div id="result"></div>
+    </div>
 </body>
 <script src="./app.js"></script>
 
 </html>
+

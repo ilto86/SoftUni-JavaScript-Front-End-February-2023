@@ -1,4 +1,3 @@
-function editElement(element, oldString, newString) {
-    // TODO:
-    element.textContent = element.textContent.split(oldString).join(newString);
+function editElement(element, stringMatch, replacer) {
+    element.textContent = element.textContent.split(stringMatch).join(replacer);
 }

@@ -1,17 +1,20 @@
 function search() {
-   // TODO:
-    const towns = Array.from(document.getElementById('towns').children);
-    const searched = document.getElementById('searchText');
-    const result = document.getElementById('result');
-    const searchedWord = searched.value;
-    let found = []
-    for (const town of towns) {
-        if (town.textContent.includes(searchedWord) && searchedWord !== '') {
-            town.style.textDecoration = 'underline';
-            town.style.fontWeight = 'bold';
-            found.push(town.textContent)
+    const towns = Array.from(document.querySelectorAll('li'));
+    const searchField = document.querySelector('#searchText')
+    const output = document.querySelector('#result');
+    let count = 0;
+
+    towns.forEach(t => {
+        if (t.textContent.toLowerCase().includes(searchField.value.toLowerCase()) && searchField.value.length !== 0) {
+            t.style.textDecoration = 'underline';
+            t.style.fontWeight = 'bold';
+            count++;
+        } else {
+            t.style.textDecoration = 'none';
+            t.style.fontWeight = 'normal';
         }
-    }
-    searched.value = ''
-    result.textContent = `${found.length} matches found`
+    });
+    output.textContent = `${count} matches found`
+    searchField.value = '';
+    count = 0;
 }

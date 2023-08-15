@@ -1,25 +1,45 @@
+// function solve() {
+//     const txt = document.querySelector('#text');
+//     const outputType = document.querySelector('#naming-convention');
+//     const output = document.querySelector('#result')
+//     const cases = {'Camel Case': 1, 'Pascal Case': 0}
+//
+//     if (txt && outputType) {
+//         let words = txt.value.toLowerCase().split(' ');
+//
+//         if (!cases.hasOwnProperty(outputType.value)) {
+//             output.textContent = 'Error!'
+//         } else {
+//             for (let i = cases[outputType.value]; i < words.length; i++) {
+//                 words[i] = `${words[i][0].toUpperCase()}${words[i].slice(1)}`
+//             }
+//             output.textContent = words.join('')
+//         }
+//     }
+// }
+
+
+
 function solve() {
-  //TODO...
-    const text = document.getElementById('text').value.toLowerCase();
-    const lettersCase = document.getElementById('naming-convention').value;
-    const result = document.getElementById('result');
+    const txt = document.querySelector('#text');
+    const outputType = document.querySelector('#naming-convention');
+    const output = document.querySelector('#result')
+    const cases = {'Camel Case': 1, 'Pascal Case': 0, 'Snake Case': 2};
 
-    if (lettersCase === 'Camel Case') {
-        let converted = convertToUpperCase(text);
-        result.textContent = converted.charAt(0).toLowerCase() + converted.substring(1);
-    } else if (lettersCase === 'Pascal Case') {
-        result.textContent = convertToUpperCase(text);
-    } else {
-        result.textContent = 'Error!';
-    }
+    if (txt && outputType) {
+        let words = txt.value.toLowerCase().split(' ');
 
-    function convertToUpperCase(string) {
-        let newText = string.split(' ');
-        let convertedString = [];
-        newText.forEach(word => {
-            word = word.charAt(0).toUpperCase() + word.substring(1);
-            convertedString.push(word);
-        });
-        return convertedString.join('');
+        if (!cases.hasOwnProperty(outputType.value)) {
+            output.textContent = 'Error!';
+        } else {
+            if (cases[outputType.value] === 2) {
+                output.textContent = words.join('_');
+            } else {
+                for (let i = cases[outputType.value]; i < words.length; i++) {
+                    words[i] = `${words[i][0].toUpperCase()}${words[i].slice(1)}`;
+                }
+                output.textContent = words.join('');
+            }
+        }
     }
 }

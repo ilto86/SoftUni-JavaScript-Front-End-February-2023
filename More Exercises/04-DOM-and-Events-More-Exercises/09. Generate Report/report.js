@@ -1,30 +1,36 @@
 function generateReport() {
-    //TODO...
-    const output = document.getElementById('output');
-    const table = document.getElementsByTagName('table');
-    const tableHead = document.querySelector('body > main > table > thead');
-    const checkBoxes = Array.from(tableHead.querySelectorAll('th > input'));
+    const outputField = document.getElementById('output');
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+    const rows = document.querySelectorAll('tbody > tr').length;
+    let arrOfRows = [];
+    let checked = [];
+    let output = [];
 
-    let outputObj = [];
-    let checkedIndices = [];
-    for (const checkBox of checkBoxes) {
-        if (checkBox.checked) {
-            checkedIndices.push(checkBoxes.indexOf(checkBox));
+    for (let i in checkboxes) {
+        if (checkboxes[i].checked) {
+            checked.push([checkboxes[i], Number(i) + 1]);
         }
     }
-    const tableTr = Array.from(document.querySelectorAll('tbody > tr'));
-    tableTr.forEach(element => {
-        let newObj = {};
-        const tableTd = Array.from(element.querySelectorAll('td'));
-        tableTd.forEach(element => {
-            if(checkedIndices.includes(tableTd.indexOf(element))) {
-                let name = tableHead
-                    .querySelectorAll('th > input')[tableTd.indexOf(element)]
-                    .name;
-                newObj[name] = element.textContent;
-            }
-        });
-        outputObj.push(newObj);
-    });
-    output.value = JSON.stringify(outputObj);
+
+    let cols = checked.length;
+
+    for (let c = 0; c < cols; c++) {
+        let colObj = [];
+        for (let r = 0; r < rows; r++) {
+            let name = checked[c][0].parentElement.innerText.toLowerCase().trim();
+            let col = checked[c][1];
+            let value = document.querySelector(`tbody tr:nth-child(${r+1}) td:nth-child(${col})`).textContent
+            colObj.push({[name]: value});
+        }
+        arrOfRows.push(colObj);
+    }
+
+    cols = arrOfRows.length;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            output.push(arrOfRows[c][r]);
+        }
+    }
+    console.log(output);
+    outputField.value = JSON.stringify(output)
 }

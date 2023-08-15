@@ -1,26 +1,71 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <link rel="stylesheet" href="template.css">-->
+<!--    <script src="solution.js"></script>-->
+<!--    <title>Pascal, Camel or Snake Case</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <h1>Welcome to Case Transformator</h1>-->
+<!--    <h2>Here you can Transform to PascalCase, camelCase and snake_case</h2>-->
+<!--    <form>-->
+<!--        <div>-->
+<!--            <label for="text">Text: </label>-->
+<!--            <input type="text" id="text">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="naming-convention">Naming Convention: </label>-->
+<!--            <input type="text" id="naming-convention">-->
+<!--        </div>-->
+
+<!--        <input type="button" onclick="solve()" value="Transform">-->
+<!--    </form>-->
+<!--    <div class="result-container">Result: <span id="result"></span></div>-->
+<!--</body>-->
+
+<!--</html>-->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="template.css">
     <script src="solution.js"></script>
-    <title>Pascal or Camel Case</title>
+    <title>Pascal, Camel, or Snake Case</title>
 </head>
 
 <body>
-    <form>
-        <div>
-            <label for="text">Text: </label>
-            <input type="text" id="text">
+<header>
+<!--    <h1>Welcome to the Case Transformator</h1>-->
+    <h1>Text Transformation Tool</h1>
+<!--    <h2>Transform to PascalCase, camelCase, and snake_case</h2>-->
+    <h2>Change Your Text Casing</h2>
+</header>
+<main>
+    <form class="custom-form">
+        <div class="form-group">
+            <label for="text">Text:</label>
+            <input class="input-field" type="text" id="text">
         </div>
-        <div>
-            <label for="naming-convention">Naming Convention: </label>
-            <input type="text" id="naming-convention">
+        <div class="form-group">
+            <label for="naming-convention">Naming Convention:</label>
+            <select class="select-field" id="naming-convention">
+                <option value="Camel Case">Camel Case</option>
+                <option value="Pascal Case">Pascal Case</option>
+                <option value="Snake Case">Snake Case</option>
+            </select>
         </div>
 
-        <input type="button" onclick="solve()" value="Transform">
+        <button class="transform-button" type="button" onclick="solve()">Transform</button>
     </form>
     <div class="result-container">Result: <span id="result"></span></div>
+</main>
 </body>
 
 </html>

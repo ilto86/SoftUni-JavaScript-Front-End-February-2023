@@ -110,8 +110,28 @@ body{
   .product .add-product:hover {
     background-color: green;
   }
-  
-  /* Totals section */
+
+/* Styling for Remove button */
+/*.product-remove {*/
+/*  width: 9%;*/
+/*}*/
+
+.remove-product {
+  border: 0;
+  padding: 4px 8px;
+  background-color: rgb(202, 153, 153); /* Red background color */
+  color: #fff;
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.remove-product:hover {
+  background-color: #ff6666; /* Lighter red background color on hover */
+}
+
+
+/* Totals section */
   
   .checkout {
     float: right;

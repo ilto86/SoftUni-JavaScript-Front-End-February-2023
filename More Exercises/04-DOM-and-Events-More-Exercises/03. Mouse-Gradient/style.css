@@ -1,16 +1,62 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
 
+/*body {*/
+/*    font-family: 'Baloo Bhai', cursive;*/
+/*}*/
+
+/*#gradient-box {*/
+/*    width: 300px;*/
+/*    border: 2px solid lightgrey;*/
+/*}*/
+
+/*#gradient-box:hover {*/
+/*    border: 2px solid black;*/
+/*}*/
+
+/*#gradient {*/
+/*    height: 30px;*/
+/*    color: white;*/
+/*    text-shadow: 1px 1px 10px black;*/
+/*    text-align: center;*/
+/*    line-height: 30px;*/
+/*    background: linear-gradient(to right, black, white);*/
+/*    cursor: crosshair;*/
+/*}*/
+
+
 body {
+    background-color: #282c34;
     font-family: 'Baloo Bhai', cursive;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+}
+
+#color-picker {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+#color-select {
+    background-color: #60a1b1;
+    color: #282c34;
+}
+
+label {
+    background-color: #60a1b1;
+    color: #282c34;
 }
 
 #gradient-box {
     width: 300px;
     border: 2px solid lightgrey;
+    transition: border-color 0.3s;
 }
 
 #gradient-box:hover {
-    border: 2px solid black;
+    border-color: var(--selected-color);  /* Use --selected-color for border-color */
 }
 
 #gradient {
@@ -19,6 +65,15 @@ body {
     text-shadow: 1px 1px 10px black;
     text-align: center;
     line-height: 30px;
-    background: linear-gradient(to right, black, white);
+    background: linear-gradient(to right, black, white); /* Initial gradient color */
     cursor: crosshair;
+    transition: background 0.3s;
+}
+
+#gradient:hover {
+    background: linear-gradient(to right, var(--selected-color), white); /* Hover color */
+}
+
+#result {
+    color: var(--selected-color);
 }

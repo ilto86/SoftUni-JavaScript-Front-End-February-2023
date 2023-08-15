@@ -13,7 +13,7 @@ function solve() {
          let numberOfWorkers = 0;
          let [brand, workers] = restaurant.split(' - ');
          workers = workers.split(', ');
-
+         
          // Add workers, average sallary and best sallary to the current restaurant
          workers.forEach(workerInfo => {
             let [name, sallary] = workerInfo.split(' ');
@@ -34,11 +34,11 @@ function solve() {
             }
 
             numberOfWorkers++;
-         })
-
+         });
+         
          // Calc the average sallary
          restaurants[brand]['averageSallary'] = totalSallary / numberOfWorkers;
-      })
+      });
 
       // Sort restaurants by average sallary
       let sotrtedRestBrands = Object.keys(restaurants).sort((a, b) => restaurants[b]['averageSallary'] - restaurants[a]['averageSallary']);
@@ -57,12 +57,12 @@ function solve() {
       let bestWorkers = [];
       Object.entries(restaurants[bestRestBrand]['workers']).forEach(([k, v]) => {
          bestWorkers.push([k, v])
-      })
+      });
 
       // Sorting best workers by sallary and adding it to the output field
       bestWorkersField.textContent = bestWorkers
-          .sort((a, b) => b[1] - a[1])
-          .map(([a, b]) => `Name: ${a} With Salary: ${b}`)
-          .join(' ')
+      .sort((a, b) => b[1] - a[1])
+      .map(([a, b]) => `Name: ${a} With Salary: ${b}`)
+      .join(' ');
    }
 }
